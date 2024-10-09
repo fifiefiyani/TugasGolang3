@@ -28,17 +28,17 @@ func main() {
 	}
 
 	// Migrasi model Item ke dalam database
-	//db.AutoMigrate(&Item{})
+	db.AutoMigrate(&Item{})
 
 	// Inisialisasi Echo
 	e := echo.New()
 
 	// Endpoint CRUD
-	//e.POST("/items", createItem)    // Create
-	//e.GET("/items", getItems)       // Read All
-	//e.GET("/items/:id", getItem)    // Read One
-	//e.PUT("/items/:id", updateItem) // Update
-	//e.DELETE("/items/:id", deleteItem) // Delete
+	e.POST("/items", createItem)    // Create
+	e.GET("/items", getItems)       // Read All
+	e.GET("/items/:id", getItem)    // Read One
+	e.PUT("/items/:id", updateItem) // Update
+	e.DELETE("/items/:id", deleteItem) // Delete
 
 	// Jalankan server di localhost:8080
 	e.Logger.Fatal(e.Start(":8080"))
